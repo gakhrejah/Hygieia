@@ -3,10 +3,11 @@ pipeline:
     group: build
     image: maven:3.5.2-jdk-8-alpine
     commands:
-      - maven clean package
-      - man install
+      - mvn clean package
+      - mvn install
   frontend:
     group: build
     image: node
     commands:
+      - cd /clone/Hygieia/UI/
       - npm install
