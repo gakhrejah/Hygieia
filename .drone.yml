@@ -1,7 +1,12 @@
 pipeline:
-  build:
+  backend:
+    group: build
     image: maven:3.5.2-jdk-8-alpine
-    pull: true
     commands:
-      - mvn clean
-      - mvn install
+      - maven clean package
+      - man install
+  frontend:
+    group: build
+    image: node
+    commands:
+      - npm install
