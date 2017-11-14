@@ -9,5 +9,5 @@ pipeline:
     group: build
     image: node
     commands:
-      - cd $(pwd)
+      - cd $(pwd)/UI
       - npm install
