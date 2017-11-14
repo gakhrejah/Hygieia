@@ -1,7 +1,7 @@
 pipeline:
-  docker:
-    image: docker
+  build:
+    image: maven:3.5.2-jdk-8-alpine
+    pull: true
     commands:
-       - echo $AWS_ACCESS_KEY_ID
-       - echo $AWS_SECRET_ACCESS_KEY
-    secrets: [ aws_access_key_id , aws_secret_access_key ]
+      - mvn clean
+      - mvn install
