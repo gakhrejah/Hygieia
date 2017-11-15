@@ -2,4 +2,4 @@ pipeline:
   backend:
     image: maven:3.5.2-jdk-8-alpine
     commands:
-      - mvn sonar:sonar -Dsonar.host.url=https://tools.publicis.sapient.com/sonar -Dsonar.login=s_ssonar@Sapient@123 -Dsonar.projectName="release-Release-1.2" -Dsonar.projectKey="release-Release-1.2" -Phygieia_api -Dpmd.failOnViolation=false
+      - echo ${DRONE_BUILD_NUMBER}
