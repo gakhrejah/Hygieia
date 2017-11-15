@@ -8,6 +8,8 @@ pipeline:
   s3-publish:
     image: plugins/s3
     region: us-east-2
+    AWS_ACCESS_KEY_ID: AKIAJN6JMZTTB6H7UWYA
+    AWS_SECRET_ACCESS_KEY: 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
     bucket: my-first-drone-pipeline
     target: processed/
     source: python/lambda-project.zip
