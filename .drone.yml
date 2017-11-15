@@ -7,10 +7,9 @@ pipeline:
       - zip -r lambda-project.zip *
   s3-publish:
     image: plugins/s3
-    acl: private
     region: us-east-2
     bucket: my-first-drone-pipeline
-    target: processed
+    target: processed/
     source: lambda-project.zip
 
   deploy-lambda:
