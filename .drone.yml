@@ -4,18 +4,18 @@ pipeline:
     commands:
       - apk update && apk add zip
       - cd python/
-      - zip -r lambda-project-${DRONE_BUILD_NUMBER}.zip *
+      - zip -r lambda-project.zip *
   s3-publish:
     image: plugins/s3
     acl: private
     region: us-east-2
     bucket: my-first-drone-pipeline
     target: processed
-    source: lambda-project-${DRONE_BUILD_NUMBER}.zip
+    source: lambda-project.zip
 
   deploy-lambda:
     image: omerxx/drone-lambda-plugin
     pull: true
     function_name: my-lambda-drone-function
     s3_bucket: my-first-drone-pipeline
-    file_name: processed/lambda-project-${DRONE_BUILD_NUMBER}.zip
+    file_name: processed/lambda-project.zip
