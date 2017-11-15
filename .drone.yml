@@ -10,7 +10,7 @@ pipeline:
     region: us-east-2
     bucket: my-first-drone-pipeline
     target: processed/
-    source: lambda-project.zip
+    source: python/lambda-project.zip
 
   deploy-lambda:
     image: omerxx/drone-lambda-plugin
