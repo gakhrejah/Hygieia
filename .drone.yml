@@ -1,21 +1,9 @@
 pipeline:
-  build:
-    image: python:2.7-alpine
+  docker:
+    image: docker
     commands:
-      - apk update && apk add zip
-      - cd python/
-      - zip -r lambda-project-${DRONE_BUILD_NUMBER}.zip *
-  s3-publish:
-    image: plugins/s3
-    region: us-east-2
-    bucket: my-first-drone-pipeline
-    target: processed/
-    source: python/lambda-project-${DRONE_BUILD_NUMBER}.zip
-
-  deploy-lambda:
-    image: omerxx/drone-lambda-plugin
-    pull: true
-    function_name: my-lambda-drone-function
-    s3_bucket: my-first-drone-pipeline
-    region: us-east-2
-    file_name: processed/lambda-project-${DRONE_BUILD_NUMBER}.zip
+     - echo ${DOCKER_USERNAME}
+     - echo ${DOCKER_PASSWORD}
+     - echo $${DOCKER_USERNAME}
+     - echo $${DOCKER_PASSWORD}
+    secrets: [ docker_username, docker_password ]
